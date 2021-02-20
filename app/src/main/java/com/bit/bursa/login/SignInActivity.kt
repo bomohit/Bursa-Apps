@@ -9,6 +9,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
@@ -56,11 +57,13 @@ class SignInActivity : AppCompatActivity() {
                                         d("bomoh", "log in success")
                                         valid = true
                                     } else {
+                                        Toast.makeText(this.applicationContext, "Wrong Password", Toast.LENGTH_SHORT).show()
                                         d("bomoh", "login failed : wrong password")
                                     }
                                 }
                             }
                             if (!valid){
+                                Toast.makeText(this.applicationContext, "Invalid Account", Toast.LENGTH_SHORT).show()
                                 d("bomoh", "account not exist")
                             }
                         }
@@ -78,6 +81,7 @@ class SignInActivity : AppCompatActivity() {
             inputUsername.error = "Required!"
             valid = false
             Log.d("bomoh", "username empty")
+            Toast.makeText(applicationContext, "Enter Username", Toast.LENGTH_SHORT).show()
         } else {
             inputUsername.error = null
         }
@@ -86,6 +90,7 @@ class SignInActivity : AppCompatActivity() {
             inputPassword.error = "Required!"
             valid = false
             Log.d("bomoh", "password empty")
+            Toast.makeText(applicationContext, "Enter Password", Toast.LENGTH_SHORT).show()
         } else {
             inputPassword.error = null
         }
