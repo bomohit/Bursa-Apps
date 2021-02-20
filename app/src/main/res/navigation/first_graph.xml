@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_graph"
+    app:startDestination="@id/selectionFragment">
+
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.bit.bursa.login.SelectionFragment"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection" >
+        <action
+            android:id="@+id/action_selectionFragment_to_searchFragment2"
+            app:destination="@id/searchFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="com.bit.bursa.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <argument
+            android:name="search_input"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment2_to_detailsFragment2"
+            app:destination="@id/detailsFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment2"
+        android:name="com.bit.bursa.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="stock_name"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="boolean" />
+    </fragment>
+</navigation>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "292720010648",
+    "project_id": "bursa-d0e5a",
+    "storage_bucket": "bursa-d0e5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292720010648:android:886ad8b1563d8311c9b7ed",
+        "android_client_info": {
+          "package_name": "com.bit.bursa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292720010648-nlohrp68p9k2bs1iohu01niq3iuj9akl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWpv6OPAiE3GPtO1y2Fo1i8sC6YsxSWps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292720010648-nlohrp68p9k2bs1iohu01niq3iuj9akl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

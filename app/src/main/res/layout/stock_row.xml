@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutStock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/border"
+    android:backgroundTint="#884CFD"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/screening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gain Or Loss"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stockName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Stock Name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/stockPrice"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screening" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KLSE :"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/stockName"
+        app:layout_constraintTop_toBottomOf="@+id/stockName" />
+
+    <TextView
+        android:id="@+id/stockKlse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="NAMEKLSE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/stockName" />
+
+    <TextView
+        android:id="@+id/stockPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0.56 MYR"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/stockName"
+        app:layout_constraintTop_toBottomOf="@+id/screening" />
+
+    <TextView
+        android:id="@+id/priceTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Percentage"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/stockPrice"
+        app:layout_constraintStart_toStartOf="@+id/stockPrice"
+        app:layout_constraintTop_toBottomOf="@+id/stockPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>

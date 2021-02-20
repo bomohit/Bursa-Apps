@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutFirst"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    android:backgroundTint="#F6F8FA"
+    tools:context=".FirstFragment">
+
+    <TextView
+        android:id="@+id/f_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/hello_first_fragment"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="WATCHLIST"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/watchListRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/f_intro" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/watchListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#FFF2DF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watchListRecyclerView">
+
+        <EditText
+            android:id="@+id/seachKey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:drawableRight="@drawable/ic_baseline_search_24"
+            android:drawablePadding="7dp"
+            android:ems="10"
+            android:hint="Etc: Iris, Airasia"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSearch"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#884CFD"
+            android:text="Search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/seachKey" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#FFF1F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <Button
+            android:id="@+id/button_portfolio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#884CFD"
+            android:text="portfolio"
+            app:layout_constraintBottom_toTopOf="@+id/button_screener"
+            app:layout_constraintEnd_toStartOf="@+id/button_tradelog"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_tradelog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#884CFD"
+            android:text=" Tradelog "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_portfolio"
+            app:layout_constraintTop_toTopOf="@+id/button_portfolio" />
+
+        <Button
+            android:id="@+id/button_screener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#884CFD"
+            android:text="Screener"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button_portfolio"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_portfolio"
+            app:layout_constraintTop_toBottomOf="@+id/button_portfolio" />
+
+        <Button
+            android:id="@+id/button_predictedPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#884CFD"
+            android:maxWidth="130dp"
+            android:text="Predicted Price"
+            app:layout_constraintBottom_toBottomOf="@+id/button_screener"
+            app:layout_constraintEnd_toEndOf="@+id/button_tradelog"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_tradelog"
+            app:layout_constraintTop_toTopOf="@+id/button_screener" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

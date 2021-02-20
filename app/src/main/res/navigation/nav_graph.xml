@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.bit.bursa.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_tradeLogFragment"
+            app:destination="@id/tradeLogFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_stockScreenerFragment"
+            app:destination="@id/stockScreenerFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_predictedPriceFragment"
+            app:destination="@id/predictedPriceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.bit.bursa.portfolio.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_addCapitalFragment"
+            app:destination="@id/addCapitalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.bit.bursa.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <argument
+            android:name="search_input"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.bit.bursa.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="stock_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailsFragment_to_buyOrSellFragment"
+            app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_sellFragment"
+            app:destination="@id/sellFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.bit.bursa.trade.BuyFragment"
+        android:label="fragment_buy_or_sell"
+        tools:layout="@layout/fragment_buy_or_sell" >
+        <argument
+            android:name="stock_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/sellFragment"
+        android:name="com.bit.bursa.trade.SellFragment"
+        android:label="fragment_sell"
+        tools:layout="@layout/fragment_sell" >
+        <argument
+            android:name="stock_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCapitalFragment"
+        android:name="com.bit.bursa.portfolio.AddCapitalFragment"
+        android:label="fragment_add_capital"
+        tools:layout="@layout/fragment_add_capital" />
+    <fragment
+        android:id="@+id/tradeLogFragment"
+        android:name="com.bit.bursa.TradeLogFragment"
+        android:label="fragment_trade_log"
+        tools:layout="@layout/fragment_trade_log" />
+    <fragment
+        android:id="@+id/stockScreenerFragment"
+        android:name="com.bit.bursa.StockScreenerFragment"
+        android:label="fragment_stock_screener"
+        tools:layout="@layout/fragment_stock_screener" >
+        <action
+            android:id="@+id/action_stockScreenerFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/predictedPriceFragment"
+        android:name="com.bit.bursa.PredictedPriceFragment"
+        android:label="fragment_predicted_price"
+        tools:layout="@layout/fragment_predicted_price" />
+</navigation>

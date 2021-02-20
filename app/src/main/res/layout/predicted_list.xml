@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/border"
+    android:backgroundTint="#2196F3"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/p_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p_klse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="klse"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/p_price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p_name" />
+
+    <TextView
+        android:id="@+id/p_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="current"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/p_predicted"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/p_klse"
+        app:layout_constraintTop_toTopOf="@+id/p_klse" />
+
+    <TextView
+        android:id="@+id/p_predicted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="predicted"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/p_price"
+        app:layout_constraintTop_toTopOf="@+id/p_klse" />
+</androidx.constraintlayout.widget.ConstraintLayout>

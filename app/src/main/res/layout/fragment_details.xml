@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutBuySell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSell"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonSell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonBuy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/detailsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Stock Name"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/detailsPrice"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KLSE :"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/detailsName"
+            app:layout_constraintTop_toBottomOf="@+id/detailsName" />
+
+        <TextView
+            android:id="@+id/detailsKlseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STOCKKLSE"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/detailsName" />
+
+        <TextView
+            android:id="@+id/detailsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="detailsPrice"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/detailsName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detailsPriceTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="percentage"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/detailsPrice"
+            app:layout_constraintStart_toStartOf="@+id/detailsPrice"
+            app:layout_constraintTop_toBottomOf="@+id/detailsPrice" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutBuySell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:backgroundTint="#FFF1F2"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Company Details"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/detailsCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Malayan Banking Berhad is a Malaysian  universal bank, with key operating &quot;home markets&quot; of Malaysia, Singapore,  and Indonesia. According to the 2020 Brand Finance report, Maybank is Malaysia's most valuable bank brand, the fourth top brand  in Asean and ranked 72nd in the world’s most valuable bank brands. "
+                android:textColor="#353535"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/detailsFounder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Founder"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detailsFounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Founded"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detailsCeo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="CEO"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detailsMarketCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Market Cap"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
