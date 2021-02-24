@@ -1,9 +1,12 @@
 package com.bit.bursa.tradelog
 
+
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bit.bursa.R
 import com.bit.bursa.TradeLog
@@ -17,6 +20,7 @@ class TradeLogAdapter(private val tradeLog: MutableList<TradeLog>) :
         val tl_buyOrSell : TextView = itemView.findViewById(R.id.tl_buyOrSell)
         val tl_quantity : TextView = itemView.findViewById(R.id.tl_quantity)
         val tl_buyPrice : TextView = itemView.findViewById(R.id.tl_buyPrice)
+        val lay : ConstraintLayout = itemView.findViewById(R.id.tradelog_layout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +35,13 @@ class TradeLogAdapter(private val tradeLog: MutableList<TradeLog>) :
         holder.tl_buyOrSell.text = trade.type.capitalize(Locale.getDefault())
         holder.tl_quantity.text = trade.quantity
         "${ trade.price } MYR".also { holder.tl_buyPrice.text = it }
+
+        if (trade.type.capitalize(Locale.getDefault()) == "Sell") {
+            holder.lay.background.setTint(Color.parseColor("#B2022F"))
+        }
+        if (trade.type.capitalize(Locale.getDefault()) == "Buy") {
+            holder.lay.background.setTint(Color.parseColor("#82D305"))
+        }
 
     }
 

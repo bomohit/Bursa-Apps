@@ -1,13 +1,18 @@
 package com.bit.bursa.portfolio
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log.d
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.bit.bursa.R
 import com.bit.bursa.login.LoginViewModel
@@ -16,6 +21,7 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import java.lang.IllegalArgumentException
 
 class AddCapitalFragment : Fragment() {
     val db = Firebase.firestore
@@ -60,19 +66,26 @@ class AddCapitalFragment : Fragment() {
         val balanceAfter = view.findViewById<TextView>(R.id.ac_AfterAdding)
 
         buttonPlus.setOnClickListener {
-
+            if (ac_count.text.toString().isNullOrEmpty()) {
+                ac_count.text = "1"
+                return@setOnClickListener
+            }
             val current = ac_count.text.toString().removeSuffix(" MYR").toDouble() + 1
-            ac_count.text = "$current MYR"
-
+//            ac_count.text = "$current MYR"
+            ac_count.text = current.toString()
             //balance after adding
             balanceAfter.text = "${currentBalance!! + current} MYR"
         }
 
         buttonMinus.setOnClickListener {
+            if (ac_count.text.toString().isNullOrEmpty()) {
+                ac_count.text = "1"
+                return@setOnClickListener
+            }
             if (ac_count.text.toString().removeSuffix(" MYR").toDouble() > 0) {
 
                 val current = ac_count.text.toString().removeSuffix(" MYR").toDouble() - 1
-                ac_count.text = "$current MYR"
+                ac_count.text = current.toString()
                 //balance after adding
                 balanceAfter.text = "${currentBalance!! + current} MYR"
             }
@@ -87,5 +100,28 @@ class AddCapitalFragment : Fragment() {
             Snackbar.make(view, "BALANCE UPDATED", Snackbar.LENGTH_LONG).show()
 
         }
+
+        ac_count.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(t: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                try {
+                    val current = t.toString().toDouble()
+                    balanceAfter.text = "${currentBalance!! + current} MYR"
+                }catch (e: IllegalArgumentException) {
+                    balanceAfter.text = "$currentBalance MYR"
+                }
+//                d("bomoh", "current: $current")
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+
     }
 }
