@@ -39,6 +39,7 @@ class StockScreenerFragment : Fragment() {
         }
 
         fun screenerupdate() {
+            stockScreenerList.clear()
             db.collection("stock")
                 .get()
                 .addOnSuccessListener { result ->

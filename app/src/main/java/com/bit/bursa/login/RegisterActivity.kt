@@ -2,14 +2,18 @@ package com.bit.bursa.login
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log.d
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bit.bursa.R
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
@@ -22,7 +26,7 @@ class RegisterActivity : AppCompatActivity()  {
 
         val signupButton : Button = findViewById(R.id.buttonSubmitSignup)
 
-        signupButton.setOnClickListener {
+        signupButton.setOnClickListener { v ->
 
             // get the input
             val inputUsername : EditText = findViewById(R.id.inputUsername)
@@ -68,6 +72,12 @@ class RegisterActivity : AppCompatActivity()  {
                                         .set(data)
                                         .addOnSuccessListener {
                                             d("bomoh", "register success")
+                                            Snackbar.make(v, "Register Success", Snackbar.LENGTH_SHORT).show()
+
+                                            // go to previous page when success register
+                                            Handler(Looper.getMainLooper()).postDelayed({
+                                                onBackPressed()
+                                            }, 1000)
                                         }
                             }
                         }

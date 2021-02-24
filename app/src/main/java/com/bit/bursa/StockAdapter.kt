@@ -39,7 +39,12 @@ class StockAdapter(private val itemWatchlist: MutableList<ItemWatchlist>) : Recy
                 holder.itemView.findNavController().navigate(R.id.action_searchFragment_to_detailsFragment, bundle)
             } catch (e: IllegalArgumentException) {
                 d("bomoh", "Detail Illegal Assumption : Stock Adapter")
-                holder.itemView.findNavController().navigate(R.id.action_searchFragment2_to_detailsFragment2, bundle)
+                try {
+                    holder.itemView.findNavController().navigate(R.id.action_searchFragment2_to_detailsFragment2, bundle)
+                } catch (e: IllegalArgumentException) {
+                    holder.itemView.findNavController().navigate(R.id.action_FirstFragment_to_detailsFragment, bundle)
+                }
+
             }
         }
     }

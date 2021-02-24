@@ -50,6 +50,7 @@ class PredictedPriceFragment : Fragment() {
         }
 
         buttonSearch.setOnClickListener {
+            closeKeyBoard(it)
             if (searchKey.text.toString().isNotEmpty()) {
                 predictedList.clear()
                 db.collection("predicted")
@@ -65,13 +66,13 @@ class PredictedPriceFragment : Fragment() {
                                         val klse = it.getField<String>("stock_klse").toString()
                                         val c_price = it.getField<String>("stock_price").toString()
                                         predictedList.add(PredictedList(stockName, klse, c_price, p_price))
+                                        rv()
                                     }
-
                             }
-                        }
-                        rv()
-                    }
 
+                        }
+
+                    }
             }
         }
 

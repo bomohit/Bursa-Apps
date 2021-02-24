@@ -56,6 +56,7 @@ class FirstFragment : Fragment() {
 
 
         fun stockupdate() {
+            itemWatchlist.clear()
             db.collection("stock")
                 .get()
                 .addOnSuccessListener { result ->

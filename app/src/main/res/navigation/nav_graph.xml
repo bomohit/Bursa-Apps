@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_predictedPriceFragment"
             app:destination="@id/predictedPriceFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"

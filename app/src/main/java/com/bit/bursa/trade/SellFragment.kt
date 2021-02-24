@@ -162,7 +162,7 @@ class SellFragment : Fragment() {
                 .addOnSuccessListener {
                     val ac_balance = it.getField<String>("balance").toString().toDouble()
                     val data2 = hashMapOf(
-                        "balance" to (ac_balance!!+total).toString()
+                        "balance" to (ac_balance+total).toString()
                     )
                     db.collection("login").document(email)
                         .set(data2 , SetOptions.merge())
@@ -184,7 +184,10 @@ class SellFragment : Fragment() {
                 .addOnSuccessListener {
                     val quantity = it.getField<String>("quantity").toString()
                     if (!quantity.isNullOrEmpty()) {
-                        val quantity2 = bo_count.text.toString().toInt() - quantity.toInt()
+                        var quantity2 = bo_count.text.toString().toInt() - quantity.toInt()
+                        if(quantity2 < 0) {
+                            quantity2 = 0
+                        }
                         val data3 = hashMapOf(
                             "quantity" to quantity2.toString()
                         )

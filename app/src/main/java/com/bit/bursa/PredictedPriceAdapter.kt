@@ -27,7 +27,6 @@ class PredictedPriceAdapter(private val predictedList: MutableList<PredictedList
         holder.stockPrice.text = predicted.price
         holder.stockPredicted.text = predicted.predicted
 
-
     }
 
     override fun getItemCount() = predictedList.size

@@ -17,6 +17,7 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import java.text.DecimalFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -146,8 +147,9 @@ class BuyFragment : Fragment() {
                 }
 
             // UPDATE BALANCE
+            val df = DecimalFormat("#.##")
             val data2 = hashMapOf(
-                "balance" to (ac_balance!!-total).toString()
+                "balance" to df.format(ac_balance!!-total).toString()
             )
             db.collection("login").document(email)
                 .set(data2 , SetOptions.merge())
@@ -163,8 +165,15 @@ class BuyFragment : Fragment() {
                 .get()
                 .addOnSuccessListener {
                     val quantity = it.getField<String>("quantity").toString()
+                    var quantity2 = 0
+                    d("bomoh", "quantity2: $quantity")
                     if (!quantity.isNullOrEmpty()) {
-                       val quantity2 = bo_count.text.toString().toInt() + quantity.toInt()
+                        quantity2 = if (quantity == "null") {
+                            bo_count.text.toString().toInt()
+                        } else {
+                            bo_count.text.toString().toInt() + quantity.toInt()
+                        }
+
                         val data3 = hashMapOf(
                             "quantity" to quantity2.toString()
                         )
